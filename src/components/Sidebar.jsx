@@ -14,7 +14,6 @@ import toast from "react-hot-toast";
 
 export default function Sidebar({ isOpen, onClose }) {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   const links = [

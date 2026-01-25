@@ -9,9 +9,6 @@ export default function Transactions() {
 
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
-
-  /* ================= SUMMARY ================= */
-
   const income = useMemo(
     () =>
       transactions
@@ -30,8 +27,6 @@ export default function Transactions() {
 
   const balance = income - expense;
 
-  /* ================= FILTERED DATA ================= */
-
   const filteredTransactions = useMemo(() => {
     return transactions
       .filter((t) => (filter === "all" ? true : t.type === filter))
@@ -43,7 +38,6 @@ export default function Transactions() {
       .sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [transactions, filter, search]);
 
-  /* ================= EMPTY STATE ================= */
 
   if (!transactions.length) {
     return (
@@ -66,7 +60,7 @@ export default function Transactions() {
         Transaction History
       </h2>
 
-      {/* ================= SUMMARY STRIP ================= */}
+      {/*SUMMARY STRIP*/}
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <SummaryCard title="Income" value={income} color="emerald" />
@@ -79,7 +73,7 @@ export default function Transactions() {
         />
       </div>
 
-      {/* ================= FILTER BAR ================= */}
+      {/*FILTER BAR*/}
 
       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
         <input
@@ -107,7 +101,7 @@ export default function Transactions() {
         </div>
       </div>
 
-      {/* ================= TRANSACTION LIST ================= */}
+      {/*TRANSACTION LIST*/}
 
       <div className="space-y-4 max-w-4xl">
         {filteredTransactions.map((tx, index) => (
@@ -175,8 +169,6 @@ export default function Transactions() {
     </div>
   );
 }
-
-/* ================= COMPONENTS ================= */
 
 function SummaryCard({ title, value, color, isCount }) {
   return (

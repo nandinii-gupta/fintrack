@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import API from "../utils/api";
+import { supabase } from "../supabase";
 
 import toast from "react-hot-toast";
 import "./auth.css";
