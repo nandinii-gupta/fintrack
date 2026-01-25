@@ -3,7 +3,6 @@ import Goal from "../models/Goal.js";
 
 const router = express.Router();
 
-/* Create Goal */
 router.post("/", async (req, res) => {
   try {
     const goal = await Goal.create(req.body);
@@ -13,13 +12,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-/* Get All Goals */
 router.get("/", async (req, res) => {
   const goals = await Goal.find();
   res.json(goals);
 });
 
-/* Add money to goal */
 router.put("/:id/add", async (req, res) => {
   const { amount } = req.body;
 

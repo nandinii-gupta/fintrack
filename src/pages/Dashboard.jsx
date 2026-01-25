@@ -44,8 +44,6 @@ export default function Dashboard() {
 
   const savings = income - expense;
 
-  /* ================= FINANCIAL HEALTH SCORE ================= */
-
   const healthScore = useMemo(() => {
     if (income === 0 && expense === 0) return null;
 
@@ -57,8 +55,6 @@ export default function Dashboard() {
     if (savingsRate < 0.3) return 70;
     return 90;
   }, [income, expense, savings]);
-
-  /* ================= CHART DATA ================= */
 
   const pieData = useMemo(() => {
     const map = {};
@@ -93,8 +89,6 @@ export default function Dashboard() {
     pieData.length > 0
       ? [...pieData].sort((a, b) => b.value - a.value)[0]
       : null;
-
-  /* ================= UI ================= */
 
   return (
     <div className="md:ml-64 pt-24 px-6 min-h-screen text-white">
@@ -237,8 +231,6 @@ export default function Dashboard() {
     </div>
   );
 }
-
-/* ================= STAT CARD ================= */
 
 function StatCard({ title, value, color }) {
   return (

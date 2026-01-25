@@ -6,7 +6,6 @@ import { getCategoryTotals } from "../utils/financeUtils";
 export default function Budgets() {
   const { transactions } = useContext(TransactionsContext);
 
-  // Default monthly limits (editable later)
   const limits = {
     Food: 6000,
     Rent: 12000,

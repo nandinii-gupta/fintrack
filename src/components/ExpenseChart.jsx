@@ -6,7 +6,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function ExpenseChart({ transactions }) {
   const categories = ["Food", "Travel", "Shopping", "Bills", "Other"];
 
-  // Generate dynamic chart data by summing values category-wise
   const data = {
     labels: categories,
     datasets: [

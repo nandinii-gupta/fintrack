@@ -3,7 +3,6 @@ import { TransactionsContext } from "../context/TransactionsContext";
 import GoalCard from "../components/GoalCard";
 import {
   calculateSavings,
-  getGoalProgress,
   getETA,
 } from "../utils/goalUtils";
 import { FiPlus, FiTrash2 } from "react-icons/fi";
@@ -23,19 +22,15 @@ export default function Goals() {
     amount: "",
   });
 
-  /* ================= LOAD GOALS ================= */
   useEffect(() => {
     const savedGoals = JSON.parse(localStorage.getItem(storageKey)) || [];
     setGoals(savedGoals);
   }, [storageKey]);
 
-  /* ================= SAVE GOALS ================= */
   const persistGoals = (updatedGoals) => {
     setGoals(updatedGoals);
     localStorage.setItem(storageKey, JSON.stringify(updatedGoals));
   };
-
-  /* ================= ADD GOAL ================= */
   const addGoal = () => {
     if (!form.title || !form.amount) return;
 
@@ -49,8 +44,6 @@ export default function Goals() {
     setForm({ title: "", amount: "" });
     setShowModal(false);
   };
-
-  /* ================= DELETE GOAL ================= */
   const deleteGoal = (id) => {
     persistGoals(goals.filter((g) => g.id !== id));
   };
@@ -111,7 +104,7 @@ export default function Goals() {
         })}
       </div>
 
-      {/* ================= ADD GOAL MODAL ================= */}
+      {/*ADD GOAL MODAL*/}
       {showModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
           <div className="bg-slate-900 p-6 rounded-2xl w-full max-w-sm">

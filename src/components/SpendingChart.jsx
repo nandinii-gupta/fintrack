@@ -7,7 +7,6 @@ import {
 } from "recharts";
 
 export default function SpendingChart({ data = [] }) {
-  // ✅ SAFETY CHECK
   if (!Array.isArray(data) || data.length === 0) {
     return (
       <p className="text-gray-400 text-center mt-4">

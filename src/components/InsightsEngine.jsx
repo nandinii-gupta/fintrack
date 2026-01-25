@@ -21,7 +21,6 @@ export default function InsightsEngine({ transactions }) {
 
   let insights = [];
 
-  // 1️⃣ If spending > 60% of income
   if (income > 0 && expenses > income * 0.6) {
     insights.push({
       icon: <FiAlertTriangle className="text-red-500" size={22} />,
@@ -29,7 +28,6 @@ export default function InsightsEngine({ transactions }) {
     });
   }
 
-  // 2️⃣ High category alert
   const highest = categorySpends.sort((a, b) => b.total - a.total)[0];
   if (highest.total > income * 0.3) {
     insights.push({
@@ -38,7 +36,6 @@ export default function InsightsEngine({ transactions }) {
     });
   }
 
-  // 3️⃣ No savings detected
   if (income > 0 && income - expenses < income * 0.2) {
     insights.push({
       icon: <FiInfo className="text-blue-500" size={22} />,

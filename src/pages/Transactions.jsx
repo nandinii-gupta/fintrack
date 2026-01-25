@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from "react";
 import { TransactionsContext } from "../context/TransactionsContext";
-import { FiTrash2, FiEdit2, FiArrowUpRight, FiArrowDownLeft } from "react-icons/fi";
+import { FiTrash2, FiArrowUpRight, FiArrowDownLeft } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 export default function Transactions() {

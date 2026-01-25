@@ -10,7 +10,6 @@ export default function BudgetCard() {
   const [budget, setBudget] = useState(null);
   const [input, setInput] = useState("");
 
-  /* ================= LOAD BUDGET ================= */
   useEffect(() => {
     const savedBudget = localStorage.getItem(storageKey);
     if (savedBudget) {
@@ -18,7 +17,6 @@ export default function BudgetCard() {
     }
   }, [storageKey]);
 
-  /* ================= SAVE BUDGET ================= */
   const saveBudget = () => {
     if (!input) return;
     localStorage.setItem(storageKey, input);

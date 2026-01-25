@@ -4,7 +4,7 @@ export const TransactionsContext = createContext();
 
 export function TransactionsProvider({ children }) {
   const user = JSON.parse(localStorage.getItem("user"));
-  const userId = user?._id || user?.email; // fallback safety
+  const userId = user?._id || user?.email; 
 
   const storageKey = userId ? `transactions_${userId}` : null;
 
@@ -14,32 +14,28 @@ export function TransactionsProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
-  /* 🔁 Sync with localStorage */
   useEffect(() => {
     if (storageKey) {
       localStorage.setItem(storageKey, JSON.stringify(transactions));
     }
   }, [transactions, storageKey]);
 
-  /* ➕ Add */
   const addTransaction = (tx) => {
     setTransactions((prev) => [
       ...prev,
       {
         ...tx,
-        id: Date.now(), // stable unique id
+        id: Date.now(), 
       },
     ]);
   };
 
-  /* ❌ Delete */
   const deleteTransaction = (id) => {
     setTransactions((prev) =>
       prev.filter((tx) => tx.id !== id)
     );
   };
 
-  /* ✏️ Update */
   const updateTransaction = (id, updatedTx) => {
     setTransactions((prev) =>
       prev.map((tx) =>
@@ -48,7 +44,6 @@ export function TransactionsProvider({ children }) {
     );
   };
 
-  /* 🚪 Clear on logout */
   const clearTransactions = () => {
     setTransactions([]);
   };

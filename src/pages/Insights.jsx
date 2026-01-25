@@ -9,10 +9,8 @@ export default function Insights({ transactions, goal }) {
     );
   }
 
-  // Calculate total expense
   const totalExpense = expenseItems.reduce((sum, tx) => sum + tx.amount, 0);
 
-  // Group expenses by category
   const categoryTotals = expenseItems.reduce((acc, tx) => {
     acc[tx.category] = (acc[tx.category] || 0) + tx.amount;
     return acc;
