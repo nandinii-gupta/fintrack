@@ -34,8 +34,25 @@ Due to hosting limitations, the backend is currently configured to run locally a
 
 ## 🧑‍💻 How to Run Locally
 
+### Prerequisites
+- Node.js and npm installed
+- MongoDB connection configured
+
 ### Frontend
+
 ```bash
 npm install
 npm start
+```
+
+### Backend
+
+Open a separate terminal and run:
+
+```bash
+cd backend
+npm install
+```
+
+
 
